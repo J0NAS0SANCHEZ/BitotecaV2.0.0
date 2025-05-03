@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Inicializa Firebase si no está ya inicializado
 if not firebase_admin._apps:
-    cred = credentials.Certificate("firebase-credentials.json")  # Reemplaza con tu ruta real
+    cred = credentials.Certificate("firebase_credentials.json")  # Reemplaza con tu ruta real
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
