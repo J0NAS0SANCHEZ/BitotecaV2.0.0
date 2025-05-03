@@ -4,7 +4,7 @@ from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
 
 load_dotenv()
-SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 print(f"SENDGRID_API_KEY: {os.environ.get('SENDGRID_API_KEY')}")  # Verificar si se carga correctamente
 
 
