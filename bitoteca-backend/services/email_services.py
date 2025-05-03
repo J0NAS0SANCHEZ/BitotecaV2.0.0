@@ -13,7 +13,7 @@ if not SENDGRID_API_KEY:
 def send_reminder_email(to_email, user_name, due_date):
     message = Mail(
         from_email='connorulloa2050@gmail.com',
-        to_emails=to_email,
+        to_emails=yenifer.clemente82@unach.mx,
         subject='📚 Recordatorio de préstamo',
         html_content=f"""
         <strong>Hola {user_name},</strong><br>
