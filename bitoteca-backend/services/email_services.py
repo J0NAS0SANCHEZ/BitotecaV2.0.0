@@ -5,7 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
-print(f"SENDGRID_API_KEY: {os.environ.get('SENDGRID_API_KEY')}")  # Verificar si se carga correctamente
+print(f"SENDGRID_API_KEY loaded?: {SENDGRID_API_KEY is not None}")
+if not SENDGRID_API_KEY:
+    print("⚠️ No se cargó la API key de SendGrid. Verifica tu archivo .env o la forma en que ejecutas el servidor.")
 
 
 def send_reminder_email(to_email, user_name, due_date):
