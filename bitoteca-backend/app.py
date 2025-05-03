@@ -18,6 +18,7 @@ def get_books():
     docs = books_ref.stream()
     books = [{**doc.to_dict(), "id": doc.id} for doc in docs]
     return jsonify(books)
+  
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
