@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from services.email_services import send_reminder_email
 
-email_bp = Blueprint('email_bp', __name__)
+email_bp = Blueprint('email', __name__)
 
 @email.bp.route("/send-reminder", methods=["post"])
 def send_reminder():
