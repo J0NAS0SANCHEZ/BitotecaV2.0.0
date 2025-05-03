@@ -11,7 +11,7 @@ load_dotenv()
 #iniciamos firebase Admin
 
 
-cred_path = "firebase.json"
+cred_path = "firebase_credentials.json"
 print("¿Existe el archivo?:", os.path.exists(cred_path))
 
 #cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
