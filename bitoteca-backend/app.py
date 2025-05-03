@@ -12,7 +12,7 @@ if not firebase_admin._apps:
 
 db = firestore.client()
 
-@app.route("/books", methods=["GET"])
+@app.route("books", methods=["GET"])
 def get_books():
     books_ref = db.collection("books")
     docs = books_ref.stream()
