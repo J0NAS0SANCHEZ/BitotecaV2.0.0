@@ -3,7 +3,7 @@ from services.email_services import send_reminder_email
 
 email_bp = Blueprint("email", __name__)
 
-@email.bp.route("/send-reminder", methods=["POST"])
+@email_bp.route("/send-reminder", methods=["POST"])
 def send_reminder():
   
   data = request.get_json()
