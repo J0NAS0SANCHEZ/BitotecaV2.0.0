@@ -1,12 +1,34 @@
-from flask import Flask
-import os
+import os 
+from flask import Flask, jsonify
+from dotenv import load_dotoenv
+import firebase_admin
+from firebase_admin import credentials, firestore
 
-app = Flask(__name__)  # Primero creamos la app
 
-@app.route("/")
+#Cargamos las variables de entorno 
+load_dotoenv()
+
+#iniciamos firebase Admin
+cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+cred = credentials.Certificate(cred_path)
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+app = Flask(__name__)
+
+@app.route('/')
 def index():
-    return "¡Hola desde Railway + Flask!"
+  return "¡API conectada a Firebase!"
+
+@app.route('/test-firestore')
+def test_firestore():
+  # Ejemplo: leer libros
+  books_ref = db.collection('books')
+  docs = books_ref.stream()
+  books = [{doc.id: doc.to_dict()} for doc in docs]
+  return jsonify(books)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host='0.0.0.0', port=port)
+  port = int(os.environ.get("PORT", 8080))
+  app.run(host='0.0.0.0', port=port)
