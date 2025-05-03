@@ -1,7 +1,7 @@
 from flask import Flask
 from routes.email_routes import email_bp
 
-app = flask(__name__)
+app = Flask(__name__)
 app.register_blueprint(email_bp)
 
 
