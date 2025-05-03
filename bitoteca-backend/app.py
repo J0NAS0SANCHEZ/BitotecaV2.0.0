@@ -6,7 +6,7 @@ from firebase_admin import credentials, firestore
 
 
 #Cargamos las variables de entorno 
-load_dotoenv()
+load_dotenv()
 
 #iniciamos firebase Admin
 cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
