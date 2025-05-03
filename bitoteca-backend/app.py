@@ -9,7 +9,12 @@ from firebase_admin import credentials, firestore
 load_dotenv()
 
 #iniciamos firebase Admin
-cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+
+
+cred_path = "firebase.json"
+print("¿Existe el archivo?:", os.path.exists(cred_path))
+
+#cred_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 cred = credentials.Certificate(cred_path)
 firebase_admin.initialize_app(cred)
 
