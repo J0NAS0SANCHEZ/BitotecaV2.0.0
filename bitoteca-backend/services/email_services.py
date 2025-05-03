@@ -7,7 +7,7 @@ load_dotenv()
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
 def send_reminder_email(to_email, user_name, due_date):
-  message = Mail(
+  message = Mail("""
     from_email='bitoteca@app.com'
     to_emails=to_email,
     subject='Recordatorio de prestamo',
