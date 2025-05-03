@@ -9,12 +9,11 @@ def send_reminder():
   to_email = data.get("email")
   user_name = data.get("name")
   due_date = data.get("due_date")
+  
+  if not all ([to_email, user_name, due_date]):
+    return jsonify({"error": "Faltan datos"}), 400
 
-if not all ([to_email, user_name, due_date]):
-  return jsonify({"error": "Faltan datos"}), 400
-
-if send_remider_email(to_email, user_name, due_date):
-  return jsonfy({"messaje": "Correo enviado exitosamente"}), 200 
-
-else:
-  return jsonify({"error": "Error al enviar el correo"}), 500 
+  if send_remider_email(to_email, user_name, due_date):
+    return jsonfy({"messaje": "Correo enviado exitosamente"}), 200 
+  else:
+    return jsonify({"error": "Error al enviar el correo"}), 500 
