@@ -1,6 +1,6 @@
 import os 
 from flask import Flask, jsonify
-from dotenv import load_dotoenv
+from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials, firestore
 
