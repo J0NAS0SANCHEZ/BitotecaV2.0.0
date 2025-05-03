@@ -1,5 +1,6 @@
 from flask import Flask
 from routes.email_routes import email_bp
+import os
 
 app = Flask(__name__)
 app.register_blueprint(email_bp)
